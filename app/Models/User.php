@@ -21,7 +21,21 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'status',
     ];
+    public function parent()
+    {
+        return $this->hasMany(Parent::class);
+    }
+    public function pumping()
+    {
+        return $this->hasMany(Pumping::class);
+    }
+    public function admin()
+    {
+        return $this->hasMany(Admin::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.
